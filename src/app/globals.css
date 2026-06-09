@@ -1,0 +1,887 @@
+/* ============================================================
+   Chevening VIP, 2026, standalone landing page
+   ------------------------------------------------------------
+   Glassmorphic dark theme matching the Murshid brand. All
+   sections are wrapped in tinted cards on a near-black
+   background. RTL throughout, Arabic only.
+   ============================================================ */
+
+:root {
+  /* Surface */
+  --bg: #0E0E10;
+  --bg-2: #131319;
+  --surface: rgba(255, 255, 255, 0.04);
+  --surface-2: rgba(255, 255, 255, 0.06);
+  --border: rgba(255, 255, 255, 0.1);
+  --border-strong: rgba(255, 255, 255, 0.18);
+
+  /* Text */
+  --tx: rgba(255, 255, 255, 0.92);
+  --tx-2: rgba(255, 255, 255, 0.65);
+  --tx-3: rgba(255, 255, 255, 0.4);
+
+  /* Accents */
+  --green: #22c55e;
+  --green-dim: rgba(34, 197, 94, 0.12);
+  --c-red: #ef4444;
+  --c-red-tint: rgba(239, 68, 68, 0.08);
+  --c-red-border: rgba(239, 68, 68, 0.3);
+  --c-orange: #f59e0b;
+  --c-orange-tint: rgba(245, 158, 11, 0.08);
+  --c-orange-border: rgba(245, 158, 11, 0.3);
+  --c-purple: #a855f7;
+  --c-purple-tint: rgba(168, 85, 247, 0.08);
+  --c-purple-border: rgba(168, 85, 247, 0.3);
+  --c-mint: #4ade80;
+  --c-mint-tint: rgba(74, 222, 128, 0.08);
+  --c-mint-border: rgba(74, 222, 128, 0.3);
+  --c-teal: #2dd4bf;
+  --c-teal-tint: rgba(45, 212, 191, 0.08);
+  --c-teal-border: rgba(45, 212, 191, 0.3);
+  --c-peach: #fb923c;
+  --c-peach-tint: rgba(251, 146, 60, 0.08);
+  --c-peach-border: rgba(251, 146, 60, 0.3);
+  --c-gold: #fbbf24;
+  --c-gold-tint: rgba(251, 191, 36, 0.08);
+  --c-gold-border: rgba(251, 191, 36, 0.3);
+  --c-blue: #60a5fa;
+  --c-blue-tint: rgba(96, 165, 250, 0.08);
+  --c-blue-border: rgba(96, 165, 250, 0.3);
+  --c-yellow: #facc15;
+  --c-yellow-tint: rgba(250, 204, 21, 0.18);
+  --c-lavender: #c4b5fd;
+  --c-lavender-tint: rgba(196, 181, 253, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--tx);
+  font-family: 'IBM Plex Sans Arabic', 'Tajawal', system-ui, sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+  min-height: 100%;
+}
+
+body {
+  background:
+    radial-gradient(60% 40% at 50% 0%, rgba(34, 197, 94, 0.06) 0%, transparent 70%),
+    radial-gradient(80% 60% at 100% 20%, rgba(96, 165, 250, 0.04) 0%, transparent 60%),
+    var(--bg);
+  background-attachment: fixed;
+}
+
+.chev {
+  min-height: 100vh;
+  padding: 32px 16px 80px;
+}
+
+.chev-wrap {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* ========================== Hero ========================== */
+
+.chev-hero {
+  text-align: center;
+  padding: 32px 8px 16px;
+}
+
+.chev-logo {
+  font-family: 'Tajawal', 'IBM Plex Sans Arabic', sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--green);
+  margin-bottom: 24px;
+  letter-spacing: -0.02em;
+}
+
+.chev-hero h1 {
+  font-size: 36px;
+  font-weight: 700;
+  margin: 0 0 12px;
+  line-height: 1.3;
+  color: var(--tx);
+}
+
+.chev-hero p {
+  font-size: 16px;
+  color: var(--tx-2);
+  margin: 0 0 20px;
+  line-height: 1.6;
+}
+
+.chev-pill-yellow {
+  display: inline-block;
+  padding: 8px 20px;
+  border-radius: 999px;
+  background: var(--c-yellow-tint);
+  color: var(--c-yellow);
+  font-size: 14px;
+  font-weight: 600;
+  border: 1px solid rgba(250, 204, 21, 0.35);
+}
+
+/* ========================== Cards (shared) ========================== */
+
+.chev-card {
+  padding: 24px;
+  border-radius: 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.chev-card h2 {
+  margin: 0 0 16px;
+  font-size: 22px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.chev-card.is-red {
+  background: var(--c-red-tint);
+  border-color: var(--c-red-border);
+}
+.chev-card.is-red h2 { color: var(--c-red); }
+
+.chev-card.is-orange {
+  background: var(--c-orange-tint);
+  border-color: var(--c-orange-border);
+}
+.chev-card.is-orange h2 { color: var(--c-orange); }
+
+.chev-card.is-purple {
+  background: var(--c-purple-tint);
+  border-color: var(--c-purple-border);
+}
+.chev-card.is-purple h2 { color: var(--c-purple); }
+
+.chev-card.is-mint {
+  background: var(--c-mint-tint);
+  border-color: var(--c-mint-border);
+}
+.chev-card.is-mint h2 { color: var(--c-mint); }
+
+.chev-card.is-teal {
+  background: var(--c-teal-tint);
+  border-color: var(--c-teal-border);
+}
+.chev-card.is-teal h2 { color: var(--c-teal); }
+
+.chev-card.is-peach {
+  background: var(--c-peach-tint);
+  border-color: var(--c-peach-border);
+}
+.chev-card.is-peach h2 { color: var(--c-peach); }
+
+.chev-card.is-gold {
+  background: var(--c-gold-tint);
+  border-color: var(--c-gold-border);
+}
+.chev-card.is-gold h2 { color: var(--c-gold); }
+
+.chev-card.is-blue {
+  background: var(--c-blue-tint);
+  border-color: var(--c-blue-border);
+}
+.chev-card.is-blue h2 { color: var(--c-blue); }
+
+.chev-card.is-green {
+  background: var(--green-dim);
+  border-color: rgba(34, 197, 94, 0.3);
+}
+.chev-card.is-green h2 { color: var(--green); }
+
+.chev-card.is-neutral {
+  background: var(--surface-2);
+  border-color: var(--border-strong);
+}
+
+.chev-card > p {
+  margin: 0 0 12px;
+  color: var(--tx-2);
+  font-size: 15px;
+}
+
+/* ========================== About: dates, what, eligibility ========================== */
+
+.chev-about {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.chev-about-h {
+  font-size: 28px;
+  font-weight: 700;
+  text-align: center;
+  margin: 0 0 8px;
+}
+
+.chev-status-banner {
+  text-align: center;
+  background: rgba(245, 158, 11, 0.16);
+  color: var(--c-orange);
+  padding: 10px;
+  border-radius: 10px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  animation: pulse 2.4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+.chev-dates-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.chev-date {
+  padding: 14px;
+  border-radius: 12px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  text-align: center;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.chev-date.is-open { color: var(--c-mint); }
+.chev-date.is-close { color: var(--c-red); }
+
+.chev-dates-foot {
+  text-align: center;
+  margin-top: 14px;
+  color: var(--tx-2);
+  font-size: 13.5px;
+}
+
+.chev-lead {
+  text-align: center;
+  font-size: 16px;
+  color: var(--tx);
+  margin: 0 0 20px;
+  line-height: 1.7;
+}
+
+.chev-covers {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.chev-cover {
+  background: var(--surface);
+  border: 1px solid var(--c-blue-border);
+  border-radius: 12px;
+  padding: 14px;
+  text-align: center;
+}
+
+.chev-cover-ic {
+  font-size: 28px;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.chev-cover-t {
+  font-size: 14px;
+  color: var(--tx);
+  font-weight: 500;
+}
+
+.chev-reqs {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.chev-req {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.chev-req-num {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  background: var(--green);
+  color: #051a0a;
+  font-weight: 700;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chev-req-body { flex: 1; }
+
+.chev-req-body h4 {
+  margin: 0 0 4px;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--tx);
+}
+
+.chev-req-body p {
+  margin: 0;
+  font-size: 14px;
+  color: var(--tx-2);
+  line-height: 1.6;
+}
+
+.chev-req-sub {
+  margin-top: 6px;
+  padding: 6px 10px;
+  background: var(--surface);
+  border-radius: 8px;
+  color: var(--tx-3);
+  font-size: 12.5px;
+}
+
+.chev-note-strip {
+  margin-top: 14px;
+  padding: 12px;
+  background: var(--c-mint-tint);
+  border: 1px solid var(--c-mint-border);
+  border-radius: 10px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-size: 13.5px;
+  color: var(--tx);
+  line-height: 1.6;
+}
+
+/* ========================== Rows (criteria, mentor) ========================== */
+
+.chev-rows {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.chev-row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 10px 14px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  font-size: 14.5px;
+}
+
+.chev-ic {
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.chev-foot-line {
+  margin-top: 14px;
+  text-align: center;
+  color: var(--c-red);
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.chev-disclaimer {
+  margin-top: 14px;
+  padding: 12px;
+  background: var(--c-orange-tint);
+  border: 1px solid var(--c-orange-border);
+  border-radius: 10px;
+  font-size: 13px;
+  color: var(--tx);
+  line-height: 1.7;
+}
+
+/* ========================== Included grid ========================== */
+
+.chev-feat-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.chev-feat {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 12px 14px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  font-size: 13.5px;
+  line-height: 1.5;
+}
+
+.chev-check {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  border-radius: 999px;
+  background: var(--green);
+  color: #051a0a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 13px;
+}
+
+/* ========================== Bonuses ========================== */
+
+.chev-bonus-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.chev-bonus {
+  background: var(--surface);
+  border: 1px solid var(--c-teal-border);
+  border-radius: 12px;
+  padding: 16px;
+  text-align: center;
+}
+
+.chev-bonus-ic {
+  font-size: 30px;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.chev-bonus-t {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--tx);
+  margin-bottom: 6px;
+}
+
+.chev-bonus-v {
+  font-size: 12.5px;
+  color: var(--c-teal);
+}
+
+.chev-bonus-sum {
+  margin-top: 16px;
+  text-align: center;
+  background: var(--c-teal-tint);
+  border: 1px solid var(--c-teal-border);
+  border-radius: 10px;
+  padding: 12px;
+  font-weight: 700;
+  font-size: 14.5px;
+  color: var(--c-teal);
+}
+
+/* ========================== Methodology ========================== */
+
+.chev-method-sub-title {
+  text-align: center;
+  color: var(--tx-2);
+  margin-bottom: 16px;
+  font-size: 14px;
+}
+
+.chev-months {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.chev-month {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.chev-month.is-blue   { border-color: var(--c-blue-border); }
+.chev-month.is-yellow { border-color: rgba(250, 204, 21, 0.3); }
+.chev-month.is-mint   { border-color: var(--c-mint-border); }
+.chev-month.is-lavender { border-color: rgba(196, 181, 253, 0.3); }
+.chev-month.is-green  { border-color: rgba(34, 197, 94, 0.4); }
+
+.chev-month h4 {
+  margin: 0 0 10px;
+  font-size: 15px;
+  font-weight: 700;
+}
+.chev-month.is-blue h4   { color: var(--c-blue); }
+.chev-month.is-yellow h4 { color: var(--c-yellow); }
+.chev-month.is-mint h4   { color: var(--c-mint); }
+.chev-month.is-lavender h4 { color: var(--c-lavender); }
+.chev-month.is-green h4  { color: var(--green); }
+
+.chev-month ul {
+  margin: 0;
+  padding-inline-start: 18px;
+  color: var(--tx-2);
+  font-size: 13.5px;
+  line-height: 1.8;
+}
+
+/* ========================== Schedule ========================== */
+
+.chev-sched {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.chev-sched-row {
+  padding: 12px 14px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  font-size: 14px;
+  color: var(--tx-2);
+}
+
+/* ========================== Form ========================== */
+
+.chev-form-sub {
+  padding: 24px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+}
+
+.chev-form-sub h3 {
+  margin: 0 0 16px;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--tx);
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+.chev-info-banner {
+  background: linear-gradient(110deg, rgba(74, 222, 128, 0.08), rgba(244, 114, 182, 0.08));
+  border: 1px solid rgba(74, 222, 128, 0.25);
+  padding: 14px;
+  border-radius: 10px;
+  margin-bottom: 16px;
+  font-size: 13.5px;
+  color: var(--tx);
+  line-height: 1.7;
+}
+
+.chev-field {
+  margin-bottom: 14px;
+}
+
+.chev-label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--tx);
+}
+
+.chev-label .req {
+  color: var(--c-red);
+  margin-inline-start: 4px;
+}
+
+.chev-label .opt {
+  color: var(--tx-3);
+  font-size: 12px;
+  margin-inline-start: 4px;
+}
+
+.chev-input,
+.chev-textarea,
+.chev-select {
+  width: 100%;
+  background: var(--bg-2);
+  color: var(--tx);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px 14px;
+  font-size: 14.5px;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.18s, box-shadow 0.18s;
+}
+
+.chev-textarea {
+  min-height: 100px;
+  resize: vertical;
+  line-height: 1.6;
+}
+
+.chev-textarea.is-tall {
+  min-height: 140px;
+}
+
+.chev-input:focus,
+.chev-textarea:focus,
+.chev-select:focus {
+  border-color: var(--green);
+  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.15);
+}
+
+.chev-helper {
+  margin-top: 6px;
+  font-size: 12.5px;
+  color: var(--green);
+  line-height: 1.5;
+}
+
+.chev-count {
+  margin-top: 4px;
+  font-size: 11.5px;
+  color: var(--tx-3);
+  text-align: end;
+}
+
+.chev-check-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.chev-cbox {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding: 10px 12px;
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 13.5px;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.chev-cbox:hover { border-color: var(--border-strong); }
+
+.chev-cbox.is-on {
+  border-color: var(--green);
+  background: rgba(34, 197, 94, 0.08);
+}
+
+.chev-cbox .box {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  border-radius: 4px;
+  border: 1px solid var(--border-strong);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  color: #051a0a;
+  background: var(--bg-2);
+}
+
+.chev-cbox.is-on .box {
+  background: var(--green);
+  border-color: var(--green);
+}
+
+/* ========================== Commitment ========================== */
+
+.chev-pay-info {
+  background: var(--c-red-tint);
+  border: 1px solid var(--c-red-border);
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.chev-pay-info h4 {
+  margin: 0 0 8px;
+  color: var(--c-red);
+  font-size: 15px;
+}
+
+.chev-pay-info ul {
+  margin: 0;
+  padding-inline-start: 20px;
+  color: var(--tx-2);
+  font-size: 13.5px;
+  line-height: 1.7;
+}
+
+.chev-commit-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.chev-commit {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  padding: 12px 14px;
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 13.5px;
+  line-height: 1.6;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.chev-commit:hover { border-color: var(--border-strong); }
+
+.chev-commit.is-on {
+  border-color: var(--green);
+  background: rgba(34, 197, 94, 0.06);
+}
+
+.chev-commit .box {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 5px;
+  border: 1px solid var(--border-strong);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  color: #051a0a;
+  background: var(--bg-2);
+}
+
+.chev-commit.is-on .box {
+  background: var(--green);
+  border-color: var(--green);
+}
+
+/* ========================== Submit ========================== */
+
+.chev-submit {
+  width: 100%;
+  padding: 16px;
+  background: var(--green);
+  color: #051a0a;
+  border: none;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 16px;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.18s, transform 0.05s;
+  box-shadow: 0 10px 30px rgba(34, 197, 94, 0.25);
+}
+
+.chev-submit:hover { background: #16a34a; }
+.chev-submit:active { transform: translateY(1px); }
+
+.chev-submit.is-disabled,
+.chev-submit:disabled {
+  background: var(--surface);
+  color: var(--tx-3);
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* ========================== Success ========================== */
+
+.chev-success {
+  text-align: center;
+  padding: 40px 20px;
+  background: var(--green-dim);
+  border: 1px solid rgba(34, 197, 94, 0.4);
+  border-radius: 16px;
+}
+
+.chev-success-mark {
+  display: inline-flex;
+  width: 64px;
+  height: 64px;
+  border-radius: 999px;
+  background: var(--green);
+  color: #051a0a;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.chev-success h2 {
+  margin: 0 0 8px;
+  font-size: 24px;
+  color: var(--green);
+}
+
+.chev-success p {
+  color: var(--tx-2);
+  font-size: 15px;
+  margin: 0 0 24px;
+  line-height: 1.7;
+}
+
+/* ========================== Error toast ========================== */
+
+.chev-error {
+  position: fixed;
+  bottom: 16px;
+  inset-inline: 16px;
+  background: var(--c-red);
+  color: #fff;
+  padding: 14px 16px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  z-index: 1000;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* ========================== Footer ========================== */
+
+.chev-foot {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 12.5px;
+  color: var(--tx-3);
+}
+
+/* ========================== Mobile ========================== */
+
+@media (max-width: 768px) {
+  .chev { padding: 16px 12px 64px; }
+  .chev-wrap { gap: 24px; }
+  .chev-hero h1 { font-size: 26px; }
+  .chev-hero p { font-size: 14.5px; }
+  .chev-card { padding: 18px; }
+  .chev-card h2 { font-size: 19px; }
+  .chev-about-h { font-size: 22px; }
+  .chev-dates-grid,
+  .chev-covers,
+  .chev-feat-grid,
+  .chev-bonus-grid,
+  .chev-check-grid { grid-template-columns: 1fr; }
+  .chev-form-sub { padding: 18px; }
+  .chev-form-sub h3 { font-size: 16px; }
+}
