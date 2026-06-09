@@ -63,6 +63,7 @@ export async function POST(req: NextRequest) {
     ["الاسم الكامل", val(body.personal, "name")],
     ["البريد الإلكتروني", val(body.personal, "email")],
     ["رقم الهاتف", val(body.personal, "phone")],
+    ["حساب الإنستغرام", val(body.personal, "ig")],
     ["العمر", val(body.personal, "age")],
     ["الجنسية", val(body.personal, "nat")],
     ["البلد الحالي للإقامة", val(body.personal, "res")],
